@@ -13,7 +13,8 @@ Our project’s main purpose is a software tool that, given set of text document
 
 ### Final 407 Report
 
-#### [PDF]()
+#### [PDF](https://github.com/CankayaUniversity/ceng-407-408-Multi-class-Classification-of-News-Text-1-/blob/master/Project%20Report.pdf)
+
 
 ### Team Members
 - Bihter ÖZUÇAK | 201411048
