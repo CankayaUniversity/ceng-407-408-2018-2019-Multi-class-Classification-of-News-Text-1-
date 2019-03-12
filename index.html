@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
+   <script type="text/javascript" charset="utf8" src="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+    </head>
+<body>
+<div class= "container">
+    <table id="forbihter">
+        <thead>
+    <tr>
+        <th>Model Name</th>
+        <th>Parameters</th>
+        <th>Method</th>
+    </tr>
+            </thead>
+    </table>
+
+</div>
+</body>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $('#forbihter').dataTable({
+                "bProcessing": true,
+                "sAjaxSource": "ajax.php",
+                "aoColumns": [
+                    { mData: 'modelName' },
+                    {mData: 'parameter'},
+                    {mData: 'methodName'}
+
+                ]
+
+            });
+
+        });
+ //
+
+
+
+    </script>
+
+
+
+
+</html>
+
+
+
