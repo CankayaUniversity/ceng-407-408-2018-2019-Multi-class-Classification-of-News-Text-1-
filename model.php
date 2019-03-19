@@ -63,8 +63,8 @@
         <td><?php echo $parameter; ?></td>
          <td><?php echo $modelPath; ?></td>
         <td><?php echo $methodId; ?></td>
-        <td><a href="xx.php?id=<?php echo $modelId; ?>" class="btn btn-primary">Düzenle</a></td>
-        <td><a href="xx.php?id=<?php echo $modelId; ?>" class="btn btn-danger">Sil</a></td>
+        <td><a href="model.php?id=<?php echo $modelId; ?>" class="btn btn-primary">Düzenle</a></td>
+        <td><a href="model.php?id=<?php echo $modelId; ?>" class="btn btn-danger">Sil</a></td>
     </tr>
         <?php
         }
@@ -122,7 +122,7 @@ if ($_POST) {
 
         if ($conn->query("UPDATE model SET modelName = '$modelName', modelPath = '$modelPath' WHERE modelId =".$_GET['id']))
         {
-            header("location:xx.php");
+            header("location:model.php");
 
         }
         else
