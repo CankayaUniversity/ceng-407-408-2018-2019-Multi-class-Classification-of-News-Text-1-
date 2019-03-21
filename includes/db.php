@@ -16,11 +16,11 @@ $connection = mysqli_connect(DB_HOST, DB_USER,DB_PASS,DB_NAME);
 //$query = "SET NAMES utf8";
 //mysqli_query($connection,$query);
 
-if($connection) {
+/*if($connection) {
 
 echo "Connected!"; //for testing don't uncomment in realtime
 
-}
+}*/
 
 
 

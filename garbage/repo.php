@@ -30,7 +30,7 @@
           <th>Repo Path</th>
         </tr>
                <?php
-                    $conn= mysqli_connect("localhost", "root", "", "proje") or die("Unable to connect".$conn-> connect_error);
+                    $conn= mysqli_connect("localhost", "root", "", "multi") or die("Unable to connect".$conn-> connect_error);
 
                     $sql="SELECT repoID, repoName, repoPath from repo";
                     $result = $conn-> query($sql);

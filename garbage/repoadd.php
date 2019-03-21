@@ -4,7 +4,7 @@ include 'includes/header.php';  ?>
 
 
  <?php
-include("connect.php"); //connect.php replace or add to files
+include 'includes/db.php';
 ?>
 
 <!doctype html>
@@ -28,13 +28,13 @@ include("connect.php"); //connect.php replace or add to files
         </tr>
 
         <tr>
-            <td>Icerik</td>
-            <td><textarea name="icerik" class="form-control" ></textarea></td>
+            <td>Repo Path</td>
+            <td><textarea name="repoPath" type="text" class="form-control" ></textarea></td>
         </tr>
 
         <tr>
             <td></td>
-            <td><input class="btn btn-primary"  type="submit" value="Ekle"></td>
+            <td><input class="btn btn-primary"  type="submit" value="Submit"></td>
         </tr>
 
     </table>
@@ -47,11 +47,11 @@ include("connect.php"); //connect.php replace or add to files
 
 if ($_POST) {
     $repoName = $_POST['repoName'];
-    $icerik = $_POST['icerik'];
+    $repoPath = $_POST['repoPath'];
 
-    if ($repoName<>"" && $icerik<>"") {
+    if ($repoName<>"" && $repoPath<>"") {
 
-        if ($baglanti->query("INSERT INTO repo_n (repoName, icerik) VALUES ('$repoName','$icerik')"))
+        if ($connection->query("INSERT INTO repo (repoName, repoPath) VALUES ('$repoName','$repoPath')"))
         {
             echo "Veri Eklendi";
         }
@@ -73,7 +73,7 @@ if ($_POST) {
         <th>Repo ID</th>
         <th>Repo Name</th>
         <th>Repo Path</th>
-        <th>Icerik</th>
+<!--        <th>Icerik</th>-->
         <th></th>
         <th></th>
         <th></th>
@@ -82,14 +82,14 @@ if ($_POST) {
 
 <?php
 
-$sorgu = $baglanti->query("SELECT * FROM repo_n");
+$sorgu = $connection->query("SELECT * FROM repo");
 
 while ($sonuc = $sorgu->fetch_assoc()) {
 
 $repoID = $sonuc['repoID'];
 $repoName = $sonuc['repoName'];
 $repoPath = $sonuc['repoPath'];
-$icerik = $sonuc['icerik']
+//$icerik = $sonuc['icerik']
 
 ?>
 
@@ -97,7 +97,7 @@ $icerik = $sonuc['icerik']
         <td><?php echo $repoID;   ?></td>
         <td><?php echo $repoName; ?></td>
         <td><?php echo $repoPath; ?></td>
-        <td><?php echo $icerik;   ?></td>
+
         <td><a href="repoedit.php?id=<?php echo $repoID; ?>" class="btn btn-primary">Edit</a></td>
         <td><a href="sil.php?id=<?php echo $repoID; ?>" class="btn btn-danger">Sil</a></td>
     </tr>
