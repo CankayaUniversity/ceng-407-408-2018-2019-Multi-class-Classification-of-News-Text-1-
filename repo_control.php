@@ -14,7 +14,7 @@
 
 		mysqli_query($db, "INSERT INTO repo (repoName, repoPath) VALUES ('$repoName', '$repoPath')");
 		$_SESSION['message'] = "Repo Info Saved!";
-		header('location: repov.php');
+		header('location: repo.php');
 	}
 
 // ...
@@ -26,7 +26,7 @@ if (isset($_POST['update'])) {
 
 	mysqli_query($db, "UPDATE repo SET repoName='$repoName', repoPath='$repoPath' WHERE repoID=$repoID");
 	$_SESSION['message'] = "Repo Info Updated!";
-	header('location: repov.php');
+	header('location: repo.php');
 }
 // ...
 
@@ -34,5 +34,5 @@ if (isset($_GET['del'])) {
 	$repoID = $_GET['del'];
 	mysqli_query($db, "DELETE FROM repo WHERE repoID=$repoID");
 	$_SESSION['message'] = "Repo Deleted!";
-	header('location: repov.php');
+	header('location: repo.php');
 }
