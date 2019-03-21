@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Mutlilabel</title>
+        <title>Mutlilabel Admin</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Site Description Here">
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
@@ -17,5 +17,4 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,400i,500,600,700%7CMerriweather:300,300i" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
- <body data-smooth-scroll-offset="77">
-
+    <body>

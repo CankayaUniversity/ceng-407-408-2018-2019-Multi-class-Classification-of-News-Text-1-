@@ -1,10 +1,10 @@
 <?php
 
-include 'header.php';  ?>
+include 'includes/header.php';  ?>
 
 
  <?php
-include("connect.php");
+include("connect.php"); //connect.php replace or add to files
 ?>
 
 <!doctype html>
@@ -122,5 +122,5 @@ $icerik = $sonuc['icerik']
 
 <?php
 
-include 'footer.php';
+include 'includes/footer.php';
 ?>

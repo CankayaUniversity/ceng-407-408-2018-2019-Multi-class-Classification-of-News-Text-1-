@@ -1,14 +1,10 @@
 <?php
-
 include "includes/header.php";
-
-
-
 ?>
 
 
 
-    <body data-smooth-scroll-offset="77">
+
         <div class="nav-container">
             <div>
                 <div class="bar bar--sm visible-xs">
@@ -56,10 +52,6 @@ include "includes/header.php";
             </section>
 
 
-           <?php
-
+<?php
 include "includes/footer.php";
-
-
-
 ?>
