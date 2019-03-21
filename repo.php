@@ -16,8 +16,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Repo Management</title>
-    <link rel="stylesheet" type="text/css" href="css/repo.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site Description Here">
+	   <title>Repo Management</title>
+        <link rel="stylesheet" type="text/css" href="css/repo.css">
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/stack-interface.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/socicon.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/lightbox.min.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/flickity.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/iconsmind.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/jquery.steps.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/theme.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/custom.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,400i,500,600,700%7CMerriweather:300,300i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
 <body>
 
@@ -46,7 +61,7 @@
 			<td><?php echo $row['repoName']; ?></td>
 			<td><?php echo $row['repoPath']; ?></td>
 			<td>
-				<a href="repov.php?edit=<?php echo $row['repoID']; ?>" class="edit_btn" >Edit</a>
+				<a href="repo.php?edit=<?php echo $row['repoID']; ?>" class="edit_btn" >Edit</a>
                 &nbsp;
                 <a href="repo_control.php?del=<?php echo $row['repoID']; ?>" class="del_btn" >Delete</a>
 			</td>
@@ -72,10 +87,12 @@
 			<input type="text" name="repoPath" value="<?php echo $repoPath; ?>">
 		</div>
 		<div class="input-group">
+            <br>
 			<?php if ($update == true): ?>
-	           <button class="btn" type="submit" name="update" style="background: #556B2F;" >update</button>
+	           <button class="btn" type="submit" name="update" style="background: #556B2F;" >Update</button>
             <?php else: ?>
-	           <button class="btn" type="submit" name="save" >Save</button>
+
+	           <button class="btn btn--primary" type="submit" name="save" >Save</button>
             <?php endif ?>
 		</div>
 	</form>
