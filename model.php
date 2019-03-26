@@ -26,7 +26,7 @@
     </head>
 <body>
 
-    <button type="button">Apply</button>
+
     <button type="button">Train Model</button>
     <table >
         <tr>
@@ -40,7 +40,7 @@
                <?php
                   $conn=mysqli_connect("localhost", "root", "", "deneme") or die("Unable to connect".$conn-> connect_error);
 
-                    $sql="SELECT modelId,modelName, parameter,modelPath, methodId from model";
+                    $sql="SELECT model.modelId,model.modelName, model.parameter,model.modelPath, model.methodId,method.methodName,method.methodId from model,method WHERE model.methodId=method.methodId";
                     $res = $conn-> query($sql);
 
 
@@ -51,7 +51,7 @@
                             $modelName = $sonuc['modelName'];
                             $parameter = $sonuc['parameter'];
                             $modelPath = $sonuc['modelPath'];
-                            $methodId = $sonuc['methodId'];
+                            $methodName = $sonuc['methodName'];
 
 
 
@@ -62,9 +62,9 @@
         <td><?php echo $modelName; ?></td>
         <td><?php echo $parameter; ?></td>
          <td><?php echo $modelPath; ?></td>
-        <td><?php echo $methodId; ?></td>
-        <td><a href="model.php?id=<?php echo $modelId; ?>" class="btn btn-primary">Düzenle</a></td>
-        <td><a href="model.php?id=<?php echo $modelId; ?>" class="btn btn-danger">Sil</a></td>
+        <td><?php echo $methodName; ?></td>
+        <td><a href="model.php?up=<?php echo $modelId; ?>" class="btn btn-primary">Düzenle</a></td>
+        <td><a href="model.php?del=<?php echo $modelId; ?>" class="btn btn-danger">Sil</a></td>
     </tr>
         <?php
         }
@@ -72,7 +72,7 @@
     </table>
     <?php
 
-$sql = $conn->query("SELECT * FROM model WHERE modelId =".(int)$_GET['id']);
+$sql = $conn->query("SELECT * FROM model WHERE modelId =".(int)$_GET['up']);
 
 
 
@@ -120,7 +120,7 @@ if ($_POST) {
     if ($modelName<>"" && $modelPath<>"") {
 
 
-        if ($conn->query("UPDATE model SET modelName = '$modelName', modelPath = '$modelPath' WHERE modelId =".$_GET['id']))
+        if ($conn->query("UPDATE model SET modelName = '$modelName', modelPath = '$modelPath' WHERE modelId =".$_GET['up']))
         {
             header("location:model.php");
 
@@ -135,13 +135,15 @@ if ($_POST) {
 
      <?php
 
-if ($_GET)
-{
+if (isset($_GET['del'])) {
+	$modelId = $_GET['del'];
+	 if($conn->query("DELETE FROM model WHERE modelId =".$_GET['del'])){
 
-if ($conn->query("DELETE FROM model WHERE modelId =".(int)$_GET['id']))
-{
-    header("location:model.php");
+	header('location: model.php');}
+else{
+     echo "Hata oluştu";
 }
+
 }
 
 ?>
