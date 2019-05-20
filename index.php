@@ -1,7 +1,7 @@
 <?php include "includes/functions.php";
 if (!isLoggedIn()) {
 	$_SESSION['msg'] = "You must log in first";
-	header('location: login.php');
+	header('location: login.php');}
 ?>
 
 <?php include "includes/header.php"; ?>
@@ -28,10 +28,10 @@ if (!isLoggedIn()) {
 
 			<div>
 				<?php  if (isset($_SESSION['user'])) : ?>
-					<strong><?php echo $_SESSION['user']['username']; ?></strong>
+					<strong><?php echo $_SESSION['user']['uName']; ?></strong>
 
 					<small>
-						<i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i>
+						<i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['uType']); ?>)</i>
 						<br>
 						<a href="index.php?logout='1'" style="color: red;">Logout</a>
 					</small>

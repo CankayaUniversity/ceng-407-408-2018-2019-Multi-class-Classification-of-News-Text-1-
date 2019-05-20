@@ -8,7 +8,7 @@ $email    = "";
 $errors   = array();
 
 
-if (isset($_POST['register_btn'])) {
+if (isset($_POST['reg_btn'])) {
 	register();
 }
 
@@ -82,7 +82,7 @@ function display_error() {
 	global $errors;
 
 	if (count($errors) > 0){
-		echo '<div class="error">';
+		echo '<div class="error" style= "color: crimson;" >';
 			foreach ($errors as $error){
 				echo $error .'<br>';
 			}
@@ -131,7 +131,7 @@ function login(){
 	if (count($errors) == 0) {
 		$password = md5($password);
 
-		$query = "SELECT * FROM user WHERE username='$username' AND password='$password' LIMIT 1";
+		$query = "SELECT * FROM user WHERE uName='$username' AND uPassword='$password' LIMIT 1";
 		$results = mysqli_query($db, $query);
 
 		if (mysqli_num_rows($results) == 1) { // user found
