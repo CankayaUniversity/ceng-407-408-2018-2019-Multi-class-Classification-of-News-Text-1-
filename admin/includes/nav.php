@@ -15,12 +15,12 @@
                                 <ul class="menu-horizontal">
                                     <li>
                                         <a href="#">
-                                            <i class="stack-interface stack-plus-circled"></i> Create
+                                            <i class="stack-interface stack-plus-circled"></i> Repo
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <i class="stack-interface stack-cog"></i> Manage
+                                            <i class="stack-interface stack-cog"></i> Model
                                         </a>
                                     </li>
                                 </ul>
@@ -60,9 +60,9 @@
                                 </ul>
                             </div>
                             <div class="bar__module">
-                                <a class="btn btn--primary btn--sm type--uppercase" href="#">
+                                <a class="btn btn--primary btn--sm type--uppercase" href="index.php?logout='1'">
                                     <span class="btn__text">
-                                        Upgrade
+                                        Logout
                                     </span>
                                 </a>
                             </div>

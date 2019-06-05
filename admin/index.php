@@ -1,13 +1,25 @@
 <?php
 include "includes/header.php";
-?>
 
+include('../includes/functions.php');
+
+if (!isAdmin()) {
+	$_SESSION['msg'] = "You must log in first";
+	header('location: ../login.php');
+}
+
+if (isset($_GET['logout'])) {
+	session_destroy();
+	unset($_SESSION['user']);
+	header("location: ../login.php");
+}
+?>
 
 <div class="bar bg--dark bar--sm visible-sm visible-xs">
                 <div class="container">
                     <div class="row">
                         <div class="col-3 col-md-2">
-                            <a href="index.html">
+                            <a href="admin/index.php">
                                 <img class="logo logo-dark" alt="logo" src="img/logo-dark.png" />
                                 <img class="logo logo-light" alt="logo" src="img/logo-light.png" />
                             </a>
@@ -27,6 +39,17 @@ include "includes/header.php";
 <?php
 include "includes/nav.php";
 ?>
+
+<?php if (isset($_SESSION['success'])) : ?>
+			<div class="error success" >
+				<h3>
+					<?php
+						echo $_SESSION['success'];
+						unset($_SESSION['success']);
+					?>
+				</h3>
+			</div>
+		<?php endif ?>
 
             <section class="height-50 imagebg text-center" data-overlay="4">
                 <div class="background-image-holder">

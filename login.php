@@ -7,7 +7,7 @@
             </div>
         </div>
         <div class="main-container">
-            <section class="height-100 imagebg text-center" data-overlay="9">
+            <section class="height-90 imagebg text-center" data-overlay="9">
                 <div class="background-image-holder"><img alt="background" src=""></div>
                 <div class="container pos-vertical-center">
                     <div class="row">

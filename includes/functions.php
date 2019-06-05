@@ -40,8 +40,8 @@ function register(){
 	if (count($errors) == 0) {
 		$password = md5($password_1);//password encryption
 
-		if (isset($_POST['user_type'])) {
-			$user_type = e($_POST['user_type']);
+		if (isset($_POST['uType'])) {
+			$user_type = e($_POST['uType']);
 			$query = "INSERT INTO user (uName, uEmail, uType, uPassword)
 					  VALUES('$username', '$email', '$user_type', '$password')";
 			mysqli_query($db, $query);
@@ -146,10 +146,19 @@ function login(){
 				$_SESSION['user'] = $logged_in_user;
 				$_SESSION['success']  = "You are now logged in";
 
-				header('location: index.php');
+				header('location: admin/index.php');
 			}
 		}else {
 			array_push($errors, "Wrong username/password combination");
 		}
+	}
+}
+
+function isAdmin()
+{
+	if (isset($_SESSION['user']) && $_SESSION['user']['uType'] == 'admin' ) {
+		return true;
+	}else{
+		return false;
 	}
 }
