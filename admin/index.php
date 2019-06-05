@@ -41,15 +41,18 @@ include "includes/nav.php";
 ?>
 
 <?php if (isset($_SESSION['success'])) : ?>
-			<div class="error success" >
-				<h3>
+			<div class="col-sm-10 col-sm-offset-2" >
+				<h3 id="msg">
 					<?php
-						echo $_SESSION['success'];
-						unset($_SESSION['success']);
+						#echo $_SESSION['success'];
+						#unset($_SESSION['success']);
+            echo '<div class="alert bg--success alert__close" data-dismiss="alert" role="alert">Login is successful!</div>';
 					?>
 				</h3>
+                <script language="JavaScript" type="text/javascript">timedMsg()</script>
 			</div>
 		<?php endif ?>
+
 
             <section class="height-50 imagebg text-center" data-overlay="4">
                 <div class="background-image-holder">

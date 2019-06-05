@@ -173,16 +173,16 @@ function login(){
 			if ($logged_in_user['uType'] == 'admin') {
 
 				$_SESSION['user'] = $logged_in_user;
-				$_SESSION['success']  = "You are now logged in";
+				$_SESSION['success']  = "Login is successful!";
 				header('location: admin/index.php');
 			}else{
 				$_SESSION['user'] = $logged_in_user;
-				$_SESSION['success']  = "You are now logged in";
+				$_SESSION['success']  = "Login is successful!";
 
 				header('location: admin/index.php');
 			}
 		}else {
-			array_push($errors, "Wrong username/password combination");
+			array_push($errors, "Wrong username/password combination!");
 		}
 	}
 }
