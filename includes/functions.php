@@ -36,6 +36,37 @@ function register(){
 		array_push($errors, "The two passwords do not match!");
 	}
 
+     //check if username exists
+
+    if(isset($username)){
+
+    $query = "SELECT * FROM user WHERE uName='$username'";
+        $results = mysqli_query($db, $query);
+
+        $get_rows = mysqli_affected_rows($db);
+
+        if($get_rows >= 1){
+            array_push($errors, "This username already in use");
+
+        }
+
+    }
+
+    //check if email exists
+    if(isset($email)){
+
+    $query = "SELECT * FROM user WHERE uEmail='$email'";
+        $results = mysqli_query($db, $query);
+
+        $get_rows = mysqli_affected_rows($db);
+
+        if($get_rows >= 1){
+            array_push($errors, "This email already in use");
+
+        }
+
+    }
+
 
 	if (count($errors) == 0) {
 		$password = md5($password_1);//password encryption
@@ -127,6 +158,8 @@ function login(){
 		array_push($errors, "Password is required");
 	}
 
+
+
 	// attempt login if no errors on form
 	if (count($errors) == 0) {
 		$password = md5($password);
@@ -137,7 +170,7 @@ function login(){
 		if (mysqli_num_rows($results) == 1) { // user found
 			// check if user is admin or user
 			$logged_in_user = mysqli_fetch_assoc($results);
-			if ($logged_in_user['user_type'] == 'admin') {
+			if ($logged_in_user['uType'] == 'admin') {
 
 				$_SESSION['user'] = $logged_in_user;
 				$_SESSION['success']  = "You are now logged in";
