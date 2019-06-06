@@ -6,6 +6,15 @@
                  <?php include "includes/nav.php"; ?>
             </div>
         </div>
+
+<?php if (isset($_SESSION['msg'])) : ?>
+
+<?php
+echo "<script type='text/javascript'>notifier.alert('You need to login first!');</script>";
+unset($_SESSION['msg']);
+?>
+<?php endif ?>
+
         <div class="main-container">
             <section class="height-90 imagebg text-center" data-overlay="9">
                 <div class="background-image-holder"><img alt="background" src=""></div>

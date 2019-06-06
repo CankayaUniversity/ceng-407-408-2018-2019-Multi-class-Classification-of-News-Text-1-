@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	$db = mysqli_connect('localhost', 'root', '', 'multi');
+	$db = mysqli_connect('localhost', 'root', '', 'mtlbl');
 
 	// initialize variables
 	$repoName = "";

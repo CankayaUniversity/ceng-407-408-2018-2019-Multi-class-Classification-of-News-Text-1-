@@ -33,7 +33,7 @@ if (isset($_GET['logout'])) {
                     <!--end of row-->
                 </div>
                 <!--end of container-->
-            </div>
+</div>
             <!--end bar-->
 
 <?php
@@ -45,7 +45,7 @@ include "includes/nav.php";
 
 					<?php
 						#echo $_SESSION['success'];
-						#unset($_SESSION['success']);
+						#
 
          /*   echo '<div class="alert bg--success"><div class="alert__body"> <span>Login is successful!</span></div> <div class="alert__close"> &times; </div></div>';*/
 
@@ -53,7 +53,7 @@ include "includes/nav.php";
 
 
                echo "<script type='text/javascript'>notifier.success('Login is successful!');</script>";
-
+unset($_SESSION['success']);
 
 					?>
 
@@ -62,7 +62,7 @@ include "includes/nav.php";
 		<?php endif ?>
 
 
-            <section class="height-50 imagebg text-center" data-overlay="4">
+<section class="height-50 imagebg text-center" data-overlay="4">
                 <div class="background-image-holder">
                     <img alt="background" src="img/landing-13.jpg" /> <!--some background image-->
                 </div>

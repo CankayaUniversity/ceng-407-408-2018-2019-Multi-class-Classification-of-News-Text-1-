@@ -15,12 +15,12 @@
                                 <ul class="menu-horizontal">
                                     <li>
                                         <a href="#">
-                                            <i class="stack-interface stack-plus-circled"></i> Repo
+                                            <i class="stack-interface stack-plus-circled"></i> Create Project
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
-                                            <i class="stack-interface stack-cog"></i> Model
+                                        <a href="myDocument.php">
+                                            <i class="stack-interface stack-cog"></i> My Documents
                                         </a>
                                     </li>
                                 </ul>
@@ -30,33 +30,32 @@
                         <div class="col-lg-6 text-right text-left-xs">
                             <div class="bar__module">
                                 <ul class="menu-horizontal">
-                                    <li class="dropdown">
+                                    <li class="dropdown text-left">
                                         <span class="dropdown__trigger">
 <!--                                            <img alt="avatar" class="avatar image--xxs" src="img/avatar-round-1.png" />-->
 
-                                            Username
+                                        <strong><?php echo $_SESSION['user']['uName']; ?></strong>
+                                            (<?php echo ucfirst($_SESSION['user']['uType']); ?>)
                                         </span>
-                                    </li>
-                                    <li class="dropdown text-left">
-                                        <span class="dropdown__trigger">
-                                            <i class="stack-interface stack-bell"></i> Alerts
-                                        </span>
-                                       <div class=" dropdown__container">
+
+                                        <div class=" dropdown__container">
                                         <div class="container">
                                             <div class="row">
                                                 <div class="col-md-3 col-lg-2 dropdown__content">
                                                     <ul class="menu-vertical">
                                                         <li>
-                                                         <a href="#">Create</a>
+                                                         <a href="edituser.php">Edit Profile</a>
                                                         </li>
 
                                                     </ul>
                                                 </div>
-                                            </div><!--end row-->
-                                        </div><!--end container-->
+                                            </div>
+                                        </div>
                                        </div>
 
+
                                     </li>
+
                                 </ul>
                             </div>
                             <div class="bar__module">
@@ -72,4 +71,4 @@
                     <!--end of row-->
                 </div>
                 <!--end of container-->
-            </nav>
+</nav>
