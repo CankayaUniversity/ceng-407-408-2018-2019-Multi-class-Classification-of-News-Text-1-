@@ -1,15 +1,15 @@
 <?php
 	session_start();
     $db = mysqli_connect('localhost', 'root', '', 'doc');
-    
+
     if (mysqli_connect_errno())
     {
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
             exit();
     }
-    
+
     $doc_veri= mysqli_query($db, "SELECT docID,docName,icerik FROM docs ");
-    
+
 
 
 ?>
@@ -48,12 +48,12 @@
 	<?php while ($row = mysqli_fetch_array($doc_veri)) { ?>
 		<tr>
             <td><?php echo $row['docID']; ?></td>
-            <td> <?php echo'<a href="icerik.php">'.$row['docName'].'</a></br>'; 
+            <td> <?php echo'<a href="icerik.php">'.$row['docName'].'</a></br>';
                             $_SESSION['veri']=$row["docName"];?></td>
             <td><?php $lbl= mysqli_query($db, "SELECT * FROM label ");
                     $row= mysqli_fetch_array($lbl);
                     echo $row['labelName']; ?></td>
-          
+
 		</tr>
 	<?php } ?>
 </table>

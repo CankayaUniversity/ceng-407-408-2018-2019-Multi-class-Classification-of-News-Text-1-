@@ -28,14 +28,14 @@ include "includes/header.php";
                 <div class="container pos-vertical-center">
                     <div class="row">
                         <div class="col-md-7 col-lg-5">
-                            
+
                             <h2>Manage Profile</h2>
                             <p class="lead">  </p>
                             <form action="manageprofile.php" method="post">
                                 <div class="row">
                                     <div class="col-md-12">
                                     <div class="form-group">
-                                        <p> User name </p> <input type="text" placeholder="User Name" name="username" class= "form-control"> 
+                                        <p> User name </p> <input type="text" placeholder="User Name" name="username" class= "form-control">
                                     </div>
 
                                     <p> Old password </p><div class="form-group">
