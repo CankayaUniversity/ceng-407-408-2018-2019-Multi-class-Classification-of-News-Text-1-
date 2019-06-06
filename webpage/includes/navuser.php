@@ -1,11 +1,3 @@
-<?php include "includes/functions.php";
-if (!isLoggedIn()) {
-	$_SESSION['msg'] = "You must log in first";
-	header('location: login.php');}
-?>
-
-<?php include "includes/header.php"; ?>
-
 <nav class="bar bar--sm bg--dark" id="menu5">
                 <div class="container">
                     <div class="row">
@@ -23,12 +15,12 @@ if (!isLoggedIn()) {
                                 <ul class="menu-horizontal">
                                     <li>
                                         <a href="#">
-                                            <i class="stack-interface stack-plus-circled"></i> Create Project
+                                            <i class="stack-interface stack-plus-circled"></i> Repo
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <i class="stack-interface stack-cog"></i> My Documents
+                                            <i class="stack-interface stack-cog"></i> Model
                                         </a>
                                     </li>
                                 </ul>
@@ -42,10 +34,10 @@ if (!isLoggedIn()) {
                                         <span class="dropdown__trigger">
 <!--                                            <img alt="avatar" class="avatar image--xxs" src="img/avatar-round-1.png" />-->
 
-                                        <?php echo $_SESSION['user']['uName']; ?>
+                                            Username
                                         </span>
                                     </li>
-                                  <!--  <li class="dropdown text-left">
+                                    <li class="dropdown text-left">
                                         <span class="dropdown__trigger">
                                             <i class="stack-interface stack-bell"></i> Alerts
                                         </span>
@@ -60,11 +52,11 @@ if (!isLoggedIn()) {
 
                                                     </ul>
                                                 </div>
-                                            </div>
-                                        </div>
+                                            </div><!--end row-->
+                                        </div><!--end container-->
                                        </div>
 
-                                    </li>-->
+                                    </li>
                                 </ul>
                             </div>
                             <div class="bar__module">
@@ -81,41 +73,3 @@ if (!isLoggedIn()) {
                 </div>
                 <!--end of container-->
             </nav>
-
-
-
-		<!-- notification message -->
-		<?php if (isset($_SESSION['success'])) : ?>
-			<div class="" >
-				<h3>
-					<?php
-						#echo $_SESSION['success'];
-						#unset($_SESSION['success']);
-
-                      echo "<script type='text/javascript'>notifier.success('Login is successful!');</script>";
-
-                    ?>
-				</h3>
-			</div>
-		<?php endif ?>
-		<!-- logged in user information -->
-		<div class="profile_info">
-<!--			<img src="images/user_profile.png"  >-->
-
-			<div>
-				<?php  if (isset($_SESSION['user'])) : ?>
-					<strong><?php echo $_SESSION['user']['uName']; ?></strong>
-
-					<small>
-						<i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['uType']); ?>)</i>
-						<br>
-						<a href="index.php?logout='1'" style="color: red;">Logout</a>
-					</small>
-
-				<?php endif ?>
-			</div>
-		</div>
-
-
-
-<?php include "includes/footer.php"; ?>

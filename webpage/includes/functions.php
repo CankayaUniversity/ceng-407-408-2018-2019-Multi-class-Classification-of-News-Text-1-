@@ -179,7 +179,7 @@ function login(){
 				$_SESSION['user'] = $logged_in_user;
 				$_SESSION['success']  = "Login is successful!";
 
-				header('location: admin/index.php');
+				header('location: index.php');
 			}
 		}else {
 			array_push($errors, "Wrong username/password combination!");
