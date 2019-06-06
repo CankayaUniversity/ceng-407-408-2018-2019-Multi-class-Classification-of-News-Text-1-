@@ -73,14 +73,14 @@ function register(){
 
 		if (isset($_POST['uType'])) {
 			$user_type = e($_POST['uType']);
-			$query = "INSERT INTO user (uName, uEmail, uType, uPassword)
-					  VALUES('$username', '$email', '$user_type', '$password')";
+			$query = "INSERT INTO user (uName, uEmail, uType, uPassword, isActive)
+					  VALUES('$username', '$email', '$user_type', '$password', 0)";
 			mysqli_query($db, $query);
 			$_SESSION['success']  = "New user successfully created!";
 			header('location: home.php');
 		}else{
-			$query = "INSERT INTO user (uName, uEmail, uType, uPassword)
-					  VALUES('$username', '$email', 'user', '$password')";
+			$query = "INSERT INTO user (uName, uEmail, uType, uPassword, isActive)
+					  VALUES('$username', '$email', 'user', '$password', 0)";
 			mysqli_query($db, $query);
 
 			// get id of the created user
@@ -175,13 +175,20 @@ function login(){
 				$_SESSION['user'] = $logged_in_user;
 				$_SESSION['success']  = "Login is successful!";
 				header('location: admin/index.php');
-			}else{
+			}else if($logged_in_user['isActive'] == 1){
+
 				$_SESSION['user'] = $logged_in_user;
 				$_SESSION['success']  = "Login is successful!";
 
 				header('location: index.php');
+                }
+              else {
+                    $_SESSION['wait']  = "Login is not successful!";
+
+
+                }
 			}
-		}else {
+		else {
 			array_push($errors, "Wrong username/password combination!");
 		}
 	}

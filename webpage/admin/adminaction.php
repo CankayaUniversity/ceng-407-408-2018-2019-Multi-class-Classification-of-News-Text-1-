@@ -1,21 +1,21 @@
 <?php
     include('../includes/db.php');
-    if(isset($_GET['status']))
+    if(isset($_GET['type']))
     {
-        $status1=$_GET['status'];
-        $select=mysqli_query($con, "select * from user where uID='$status1'");
+        $status2=$_GET['type'];
+        $select=mysqli_query($con, "select * from user where uID='$status2'");
         while($row=mysqli_fetch_object ($select))
         {
-            $status_var=$row->isActive;
-            if($status_var=='0')
+            $status_vari=$row->uType;
+            if($status_vari=='admin')
             {
-                $status_state=1;
+                $status_state= 'user';
             }
             else
             {
-                $status_state=0;
+                $status_state= 'admin';
             }
-            $update=mysqli_query($con, "update user set isActive='$status_state' where uID='$status1' ");
+            $update=mysqli_query($con, "update user set uType='$status_state' where uID='$status2' ");
             if($update)
             {
                 header("Location:members.php");

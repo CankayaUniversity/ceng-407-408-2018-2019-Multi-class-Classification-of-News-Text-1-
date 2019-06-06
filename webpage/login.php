@@ -7,6 +7,15 @@
             </div>
         </div>
 
+<?php if (isset($_SESSION['wait'])) : ?>
+
+<?php
+echo "<script type='text/javascript'>notifier.alert('You need to wait for account activation!');</script>";
+unset($_SESSION['wait']);
+?>
+<?php endif ?>
+
+
 <?php if (isset($_SESSION['msg'])) : ?>
 
 <?php
@@ -14,6 +23,8 @@ echo "<script type='text/javascript'>notifier.alert('You need to login first!');
 unset($_SESSION['msg']);
 ?>
 <?php endif ?>
+
+
 
         <div class="main-container">
             <section class="height-90 imagebg text-center" data-overlay="9">

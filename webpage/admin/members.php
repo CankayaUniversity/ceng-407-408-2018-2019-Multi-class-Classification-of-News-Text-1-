@@ -48,7 +48,11 @@ unset($_SESSION['success']); ?>
 
 			</div>
 		<?php endif ?>
- <table>
+<div class="col-md-4" style="display: table;
+  margin: 0 auto;">
+ <table class="border--round table--alternate-row">
+<!--   table--alternate-column
+table--alternate-row-->
 	<thead>
 		<tr>
 			<th>User Name</th>
@@ -97,14 +101,14 @@ if(($status)=='0')
              {
 
              ?>
-         <a href="members.php?type=<?php echo $row['uID']; ?>" class="btn bg--twitter" onclick="myFunction()"><span class="btn__text">Promote to Admin</span></a>
+         <a href="adminaction.php?type=<?php echo $row['uID']; ?>" class="btn bg--twitter" onclick="return confirm('Make <?php echo $data; ?> admin?');"><span class="btn__text">Promote to Admin</span></a>
           <?php
              }
              if(($type) == 'admin')
              {
 
              ?>
-         <a href="members.php?type=<?php echo $row['uID']; ?>" class="btn bg--pinterest" onclick="myFunction()"><span class="btn__text">Demote to User</span></a>
+         <a href="adminaction.php?type=<?php echo $row['uID']; ?>" class="btn bg--pinterest" onclick="return confirm('Make <?php echo $data; ?> normal user?');"><span class="btn__text">Demote to User</span></a>
          <?php
                 }
             ?>
@@ -114,6 +118,8 @@ if(($status)=='0')
 <?php }?>
 </table>
 
+</div>
 
-
-
+<?php
+include "includes/footer.php";
+?>
