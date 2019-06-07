@@ -1,0 +1,89 @@
+<html>
+	<head>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/global.css">
+	</head>
+	<body>
+		<div id="uploads"></div>
+		<div class="dropzone" id="dropzone">Drop files here</div>
+
+		<script>
+			(function(){
+				var dropzone = document.getElementById('dropzone');
+
+				var displayUploads = function(data){
+					var uploads = document.getElementById('uploads'),
+					anchor,
+					x;
+
+					for(x = 0; x < data.length; x++){
+						anchor=document.createElement('a');
+						anchor.href = data[x].file;
+						anchor.innerText = data[x].name;
+						uploads.appendChild(anchor);
+
+					}
+				}
+				var upload = function(files){
+					var formData = new FormData(),
+					xhr = new XMLHttpRequest(),
+					x;
+
+					for(x = 0; x<files.length; x++){
+						formData.append('file[]',files[x]);
+					}
+					xhr.onload = function(){
+						var data = JSON.parse(this.responseText);
+						console.log(data);
+						displayUploads(data);
+					}
+					xhr.open('post','upload.php');
+					xhr.send(formData);
+					alert('File Uploaded Successfully');
+				}
+				dropzone.ondrop = function(e){
+					e.preventDefault();
+					this.className ="dropzone";
+					upload(e.dataTransfer.files);
+				}
+				dropzone.ondragover = function(){
+					this.className = 'dropzone dragover';
+					return false;
+				}
+				dropzone.ondragleave = function(){
+					this.className = 'dropzone';
+					return false;
+				}
+			}());
+		</script>
+        
+        <form id="form1" name="form1" method="post" action="<?php echo $PHP_SELF; ?>">  
+            Model List :  
+            <select Mod Name='NEW'>  
+            <option value="">--- Select ---</option>  
+            <?  
+                mysql_connect ("localhost","root","");  
+                mysql_select_db ("?");  
+                $select="?";  
+                if (isset ($select)&&$select!=""){  
+                $select=$_POST ['NEW'];  
+            }  
+            ?>  
+            <?  
+                $list=mysql_query("select * from ? order by ? asc");  
+             while($row_list=mysql_fetch_assoc($list)){  
+                ?>  
+                    <option value="<? echo $row_list['?']; ?>"<? if($row_list['?']==$select){ echo "selected"; } ?>>  
+                                         <?echo $row_list['?'];?>  
+                    </option>  
+                <?  
+                }  
+                ?>  
+            </select>  
+            <input type="submit" name="Submit" value="classify" onclick="callClassify()"/> 
+        
+    
+          
+        </form>  
+	</body>
+</html>
