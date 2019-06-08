@@ -21,7 +21,24 @@ return array(
         'footer.php',
 		'*.lab',
         '*.php',
-        '*.css'
+        '*.css',
+        '*.js',
+        '*.eo',
+        'css',
+        'css/*',
+        'dist',
+        'dist/*',
+        'fonts',
+        'fonts/*',
+        'includes',
+        'includes/*',
+        'js',
+        'js/*',
+        'less',
+        'less/*',
+        'themes',
+        'themes/*'
+
     ),
 
     // If set to 'true' an directory with an index file (as defined below) will

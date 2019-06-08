@@ -108,12 +108,12 @@ if (isset($_GET['logout'])) {
             <div id="directory-list-header" >
 <!--                style="margin-top:60px;"-->
                 <div class="row">
-                    <div class="col-md-3 col-sm-6 col-xs-10">File</div>
+                    <div class="col-md-5 col-sm-6 col-xs-10">File</div>
 					<div class="col-md-2 col-sm-2 text-right">Label</div>
                     <div class="col-md-2 col-sm-2 col-xs-2 text-right">Size</div>
 
                     <div class="col-md-2 col-sm-2 hidden-xs text-right">Last Modified</div>
-                    <div class="col-md-2 col-sm-2 hidden-xs text-right">Actions</div>
+                    <!--<div class="col-md-2 col-sm-2 hidden-xs text-right">Actions</div>-->
 
                 </div>
             </div>
@@ -126,7 +126,7 @@ if (isset($_GET['logout'])) {
 
 
                             <div class="row">
-                                <span class="file-name col-md-3 col-sm-6 col-xs-9">
+                                <span class="file-name col-md-5 col-sm-6 col-xs-9">
                                     <i class="fa <?php echo $fileInfo['icon_class']; ?> fa-fw"></i>
                                     <?php echo $name; ?>
                                 </span>
@@ -144,9 +144,9 @@ if (isset($_GET['logout'])) {
                                     <?php echo $fileInfo['mod_time']; ?>
                                 </span>
 
-                                <span class="file-modified col-md-2 col-sm-2 hidden-xs text-right">
-                                    <?php echo $fileInfo['mod_time']; ?>
-                                </span>
+                              <!--  <span class="file-modified col-md-2 col-sm-2 hidden-xs text-right">
+                                     <?php # '<a href="" onclick="rrmdir()" class="">Delete</a>' ?>
+                                </span>-->
                             </div>
 
                         </a>

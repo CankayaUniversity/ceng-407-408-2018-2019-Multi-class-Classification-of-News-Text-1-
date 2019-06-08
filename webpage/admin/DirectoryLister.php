@@ -392,6 +392,23 @@ class DirectoryLister {
 	// }
     }
 
+/*
+function rrmdir($filePath) {
+  if (is_dir($filePath)) {
+    $objects = scandir($filePath);
+    foreach ($objects as $object) {
+      if ($object != "." && $object != "..") {
+        if (filetype($filePath."/".$object) == "dir")
+           rrmdir($filePath."/".$object);
+        else unlink   ($filePath."/".$object);
+      }
+    }
+    reset($objects);
+    rmdir($filePath);
+  }
+ }
+*/
+
 
 
 
