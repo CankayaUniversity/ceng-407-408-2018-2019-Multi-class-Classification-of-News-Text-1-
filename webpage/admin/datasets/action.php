@@ -80,7 +80,7 @@ if(isset($_POST["action"]))
       <td><button type="button" name="delete" data-name="'.$name.'" class="delete btn btn-danger btn-xs">Delete</button></td>
       <td><button type="button" name="upload" data-name="'.$name.'" class="upload btn btn-info btn-xs">Upload File</button></td>
       <td><button type="button" name="view_files" data-name="'.$name.'" class="view_files btn btn-default ">View Files</button></td>
-      <td><button type="button" name="train_dataset" data-name="'.$name.'" class="view_files btn btn-default ">Train</button></td>
+      <td><button type="button" name="train" data-name="'.$name.'" class="train btn btn-default ">Train</button></td>
      </tr>';
    }
   }
@@ -120,6 +120,96 @@ if(isset($_POST["action"]))
    echo 'Dataset already has the same name';
   }
  }
+
+    function disable_ob() {
+    // Turn off output buffering
+    ini_set('output_buffering', 'off');
+    // Turn off PHP output compression
+    ini_set('zlib.output_compression', false);
+    // Implicitly flush the buffer(s)
+    ini_set('implicit_flush', true);
+    ob_implicit_flush(true);
+    // Clear, and turn off output buffering
+    while (ob_get_level() > 0) {
+        // Get the curent level
+        $level = ob_get_level();
+        // End the buffering
+        ob_end_clean();
+        // If the current level has not changed, abort
+        if (ob_get_level() == $level) break;
+    }
+    // Disable apache output buffering/compression
+    if (function_exists('apache_setenv')) {
+        apache_setenv('no-gzip', '1');
+        apache_setenv('dont-vary', '1');
+    }
+}
+
+
+    if($_POST["action"] == "train")
+ {
+  if(file_exists($_POST["folder_name"]))
+  {
+
+   $folder_name = $_POST["folder_name"];
+      $vec_dim =  $_POST["vec_dim"];
+      $model_name =  $_POST["model_name"];
+      $labels = $_POST["labels"];
+      $test_ratio = $_POST["test_ratio"];
+    $epoch = $_POST["epoch"];
+
+//disable_ob();
+
+      /*header("Content-type: text/plain");
+
+// tell php to automatically flush after every output
+// including lines of output produced by shell commands
+
+
+$command = "python D:\\xampp\\htdocs\\mtlbl\\webpage\\admin\\datasets\\train.py $folder_name $vec_dim";
+system($command);*/
+
+
+      /*$cmd = "python D:\\xampp\\htdocs\\mtlbl\\webpage\\admin\\datasets\\train.py $folder_name $vec_dim ";*/
+
+
+       $a = popen("python -u D:\\xampp\\htdocs\\mtlbl\\webpage\\admin\\train.py $folder_name $vec_dim $test_ratio $epoch $model_name $labels", "r");
+
+
+      while (!feof($a)) {
+          $buffer = fgets($a);
+        echo "$buffer<br>\n";
+        ob_flush();
+        }
+        pclose($a);
+
+
+
+
+
+
+      #this is test for CLI
+      #$output = shell_exec('dir');
+      #echo $output;
+
+
+
+      /*echo $_POST["folder_name"];
+       echo $_POST["vec_dim"];
+       echo $_POST["labels"];
+       echo $_POST["test_ratio"];
+       echo $_POST["epoch"];*/
+
+
+
+  # echo 'Train Process Started!';
+  }
+  else
+  {
+   echo 'There is an error!';
+  }
+ }
+
 
  if($_POST["action"] == "delete")
  {

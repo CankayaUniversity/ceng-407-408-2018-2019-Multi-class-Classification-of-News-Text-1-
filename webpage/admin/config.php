@@ -37,7 +37,8 @@ return array(
         'less',
         'less/*',
         'themes',
-        'themes/*'
+        'themes/*',
+        '*.py'
 
     ),
 
