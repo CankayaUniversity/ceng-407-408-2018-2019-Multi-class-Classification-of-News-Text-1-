@@ -18,12 +18,12 @@ if($_FILES["zip_file"]["name"]) {
 		$message = "The file you are trying to upload is not a .zip file. Please try again.";
 	}
 
-	$target_path = "zips\\".$filename;
+	$target_path = "\\zips\\".$filename;
 	if(move_uploaded_file($source, $target_path)) {
 		$zip = new ZipArchive();
 		$x = $zip->open($target_path);
 		if ($x === true) {
-			$zip->extractTo("\zips");
+			$zip->extractTo("/zips\\");
 			$zip->close();
 
 			unlink($target_path);

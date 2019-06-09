@@ -49,7 +49,7 @@
                                                 <div class="col-md-3 col-lg-2 dropdown__content">
                                                     <ul class="menu-vertical">
                                                         <li>
-                                                         <a href="../editadmin.php">Edit Profile</a>
+                                                         <a href="#">Edit Profile</a>
                                                         </li>
 
                                                     </ul>
@@ -62,7 +62,7 @@
                                     </li>
 
 
-                                    <li class="dropdown text-left">
+                                    <!--<li class="dropdown text-left">
                                         <span class="dropdown__trigger">
                                             <i class="stack-interface stack-bell"></i> Alerts
                                         </span>
@@ -81,13 +81,13 @@
                                         </div>
                                        </div>
 
-                                    </li>
+                                    </li>-->
 
 
                                 </ul>
                             </div>
                             <div class="bar__module">
-                                <a class="btn btn--primary btn--sm type--uppercase" href="index.php?logout='1'">
+                                <a class="btn btn--primary btn--sm type--uppercase" href="../index.php?logout='1'">
                                     <span class="btn__text">
                                         Logout
                                     </span>

@@ -38,7 +38,11 @@ return array(
         'less/*',
         'themes',
         'themes/*',
-        '*.py'
+        '*.py',
+        'magpie',
+        'magpie/*',
+        'models',
+        'models/*'
 
     ),
 
