@@ -1,7 +1,7 @@
 <?php
 
 
-include('../includes/functions.php');
+/*include('../includes/functions.php');
 
 if (!isAdmin()) {
 	$_SESSION['msg'] = "You must log in first";
@@ -12,7 +12,7 @@ if (isset($_GET['logout'])) {
 	session_destroy();
 	unset($_SESSION['user']);
 	header("location: ../../login.php");
-}
+}*/
 ?>
 
 <!DOCTYPE html>
@@ -28,10 +28,10 @@ if (isset($_GET['logout'])) {
      <?php include "../includes/modelnav.php"; ?>
   <br />
   <div class="container">
-   <h3 align="center"><a href="../models/tmodel.php" style="color: white;"><button type="button" name="model_view" id="model_view" class="btn btn-success">View Trained Models</button></a></h3>
+   <!--<h3 align="center"><a href="../models/tmodel.php" style="color: white;"><button type="button" name="model_view" id="model_view" class="btn btn-success">View Trained Models</button></a></h3>-->
    <br />
    <div align="right">
-    <button type="button" name="create_folder" id="create_folder" class="btn btn-success">Create</button>
+    <!--<button type="button" name="create_folder" id="create_folder" class="btn btn-success">Create</button>-->
    </div>
    <br />
    <div class="table-responsive" id="folder_table">
@@ -104,7 +104,7 @@ if (isset($_GET['logout'])) {
     <h4 class="modal-title"><span id="change_title">Train Model</span></h4>
    </div>
    <div class="modal-body" id="train_list">
-       <p>Enter Model Name
+       <p>Model Name
     <input type="text" name="model_name" id="model_name" class="form-control" /></p>
     <p>Vector Dim
     <input type="text" name="vec_dim" id="vec_dim" class="form-control" /></p>
@@ -114,12 +114,16 @@ if (isset($_GET['logout'])) {
     <input type="text" name="test_ratio" id="test_ratio" class="form-control" /></p>
        <p>Epoch
     <input type="text" name="epoch" id="epoch" class="form-control" /></p>
+       <p>Created from (Dataset)
+    <input type="text" name="dataset" id="dataset" class="form-control" /></p>
+       <p>Classify File
+    <input type="text" name="file" id="file" class="form-control" /></p>
 
     <br />
 
    <input type="hidden" name="action" id="action" />
     <input type="hidden" name="old_name" id="old_name" />
-    <input type="button" name="train_button" id="train_button" class="btn--lg btn-info" value="Train" />
+    <input type="button" name="classify_button" id="classify_button" class="btn--lg btn-info" value="Classify" />
 
    </div>
    <div class="modal-footer">
@@ -245,7 +249,7 @@ $(document).ready(function(){
   //$('#change_title').text("Change Dataset Name");
  });*/
 
- $(document).on("click", ".train", function(){
+ /*$(document).on("click", ".train", function(){
   var folder_name = $(this).data("name");
      $('#folder_name').val(folder_name);
      $('#model_name').val("something");
@@ -255,22 +259,68 @@ $(document).ready(function(){
      $('#epoch').val("2");
 
  $('#trainModal').modal('show');
+ });*/
+
+
+    $(document).on("click", ".classify_file_old", function(){
+  var folder_name = $(this).data("name");
+     var action = "classify";
+
+     $.ajax({
+        url:"action.php",
+    method:"POST",
+      data:{folder_name:folder_name, action:action  },
+    success:function(data)
+    {
+
+        var result = $.parseJSON(data);
+
+
+       window.modelName = result[0];
+         window.modelVec = result[1];
+          window.modelEp = result[2];
+         window.modelLabel = result[3];
+         window.modelRatio = result[4];
+        window.datasetName = result[5];
+
+        $('#model_name').val(window.modelName);
+        $('#vec_dim').val(window.modelVec);
+        $('#labels').val(window.modelLabel);
+        $('#test_ratio').val(window.modelRatio);
+         $('#epoch').val(window.modelEp);
+        $('#dataset_name').val(window.datasetName);
+
+
+    $('#trainModal').modal('show');
+    }
+
+  });
+
  });
+
+
+
+
+
+
 
   //var action = "train";
    /*  var formData=new FormData(document.getElementById('train_form'));
      formData.append("action", train);
     formData.append("folder_name", folder_name);*/
   //if(confirm("Do you want to train this dataset?"))
- $(document).on('click', "#train_button", function(){
-      var folder_name = $('#folder_name').val();
+ $(document).on('click', "#classify_button", function(){
+     // var folder_name = $('#folder_name').val();
   var vec_dim = $('#vec_dim').val();
   var labels = $('#labels').val();
      var test_ratio = $('#test_ratio').val();
      var epoch = $('#epoch').val();
       var model_name = $('#model_name').val();
-   var action = "train";
-     $('#train_button').val("Processing... Please DO NOT CLOSE this window/tab!");
+     var path = $('#file').val();
+
+   var action = "classify";
+
+     $('#classify_button').val("Processing... Please DO NOT CLOSE this window/tab!");
    $.ajax({
     url:"action.php",
     method:"POST",
@@ -278,12 +328,12 @@ $(document).ready(function(){
        contentType: false,
    cache: false,
    processData:false,*/
-    data:{folder_name:folder_name, model_name:model_name, action:action, vec_dim: vec_dim, labels:labels, test_ratio:test_ratio, epoch:epoch  },
+    data:{ model_name:model_name, action:action, vec_dim: vec_dim, labels:labels, test_ratio:test_ratio, epoch:epoch, path: path  },
     success:function(data)
     {
      //load_folder_list();
      //alert(data);
-         $('#train_button').val("Train!");
+         //$('#train_button').val("Classify!");
         $('#trainModal').modal('hide');
         $('#train_listu').html(data);
     $('#trainModalres').modal('show');
@@ -361,6 +411,54 @@ $(document).ready(function(){
      alert(data);
      $('#filelistModal').modal('hide');
      load_folder_list();
+    }
+   });
+  }
+ });
+
+     $(document).on('click', '.classify_file', function(){
+  var path = $(this).attr("id");
+         var folder_name = path.split('/')[0];
+         var file_name = path.split('/')[1];
+         //var folder_name = parts[0];
+         //$first = strtok(path, '/')
+         //var folder_name = path;
+  var action = "classify_files";
+  if(confirm("Are you sure you want to classify this file?"))
+  {
+   $.ajax({
+    url:"action.php",
+    method:"POST",
+    data:{path:path, action:action, folder_name: folder_name},
+    success:function(data)
+    {
+        $('#filelistModal').modal('hide');
+         var result = $.parseJSON(data);
+
+
+       window.modelName = result[0];
+         window.modelVec = result[1];
+          window.modelEp = result[2];
+         window.modelLabel = result[3];
+         window.modelRatio = result[4];
+        window.datasetName = result[5];
+
+        $('#model_name').val(window.modelName);
+        $('#vec_dim').val(window.modelVec);
+        $('#labels').val(window.modelLabel);
+        $('#test_ratio').val(window.modelRatio);
+         $('#epoch').val(window.modelEp);
+        $('#dataset').val(window.datasetName);
+        $('#file').val(path);
+
+
+
+    $('#trainModal').modal('show');
+
+
+     //alert(data);
+
+     //load_folder_list();
     }
    });
   }

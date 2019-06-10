@@ -68,14 +68,14 @@ if(isset($_POST["action"]))
   $output = '
   <table class="table table-bordered table-striped">
    <tr>
-    <th>Dataset Name</th>
+    <th>Model Name</th>
     <th>Total File</th>
     <th>Size</th>
-    <th>Update</th>
+    <!--<th>Update</th>-->
     <th>Delete</th>
-    <th>Upload File</th>
-    <th>View Dataset</th>
-    <th>Train Dataset</th>
+    <!--<th>Upload File</th>-->
+    <th>View Files</th>
+    <!--<th>Classify</th>-->
    </tr>
    ';
   if(count($folder) > 0)
@@ -87,11 +87,11 @@ if(isset($_POST["action"]))
       <td>'.$name.'</td>
       <td>'.(count(scandir($name)) - 2).'</td>
       <td>'.get_folder_size($name).'</td>
-      <td><button type="button" name="update" data-name="'.$name.'" class="update btn btn-warning btn-xs">Update</button></td>
+      <!--<td><button type="button" name="update" data-name="'.$name.'" class="update btn btn-warning btn-xs">Update</button></td>-->
       <td><button type="button" name="delete" data-name="'.$name.'" class="delete btn btn-danger btn-xs">Delete</button></td>
-      <td><button type="button" name="upload" data-name="'.$name.'" class="upload btn btn-info btn-xs">Upload File</button></td>
+      <!--<td><button type="button" name="upload" data-name="'.$name.'" class="upload btn btn-info btn-xs">Upload File</button></td>-->
       <td><button type="button" name="view_files" data-name="'.$name.'" class="view_files btn btn-default ">View Files</button></td>
-      <td><button type="button" name="train" data-name="'.$name.'" class="train btn btn-default ">Train</button></td>
+      <!--<td><button type="button" name="train" data-name="'.$name.'" class="train btn btn-default ">Train</button></td>-->
      </tr>';
    }
   }
@@ -99,7 +99,7 @@ if(isset($_POST["action"]))
   {
    $output .= '
     <tr>
-     <td colspan="6">No Dataset Found</td>
+     <td colspan="6">No Queue Found</td>
     </tr>
    ';
   }
@@ -157,69 +157,7 @@ if(isset($_POST["action"]))
 }
 
 
-    if($_POST["action"] == "train")
- {
-  if(file_exists($_POST["folder_name"]))
-  {
 
-   $folder_name = $_POST["folder_name"];
-      $vec_dim =  $_POST["vec_dim"];
-      $model_name =  $_POST["model_name"];
-      $labels = $_POST["labels"];
-      $test_ratio = $_POST["test_ratio"];
-    $epoch = $_POST["epoch"];
-
-//disable_ob();
-
-      /*header("Content-type: text/plain");
-
-// tell php to automatically flush after every output
-// including lines of output produced by shell commands
-
-
-$command = "python D:\\xampp\\htdocs\\mtlbl\\webpage\\admin\\datasets\\train.py $folder_name $vec_dim";
-system($command);*/
-
-
-      /*$cmd = "python D:\\xampp\\htdocs\\mtlbl\\webpage\\admin\\datasets\\train.py $folder_name $vec_dim ";*/
-
-
-       $a = popen("python -u D:\\xampp\\htdocs\\mtlbl\\webpage\\admin\\classif.py $folder_name $vec_dim $test_ratio $epoch $model_name $labels", "r");
-
-
-      while (!feof($a)) {
-          $buffer = fgets($a);
-        echo "$buffer<br>\n";
-        ob_flush();
-        }
-        pclose($a);
-//$modelPath = 'models\\' . $folder_name;
-      /*mysqli_query($db, "INSERT INTO model (modelName, modelPath, modelVec, modelEp, modelLabel, modelRatio, datasetName) VALUES ('$model_name', '$model_name', '$vec_dim', '$epoch', '$labels', '$test_ratio', '$folder_name')");*/
-
-
-
-
-      #this is test for CLI
-      #$output = shell_exec('dir');
-      #echo $output;
-
-
-
-      /*echo $_POST["folder_name"];
-       echo $_POST["vec_dim"];
-       echo $_POST["labels"];
-       echo $_POST["test_ratio"];
-       echo $_POST["epoch"];*/
-
-
-
-  # echo 'Train Process Started!';
-  }
-  else
-  {
-   echo 'There is an error!';
-  }
- }
 
 
  if($_POST["action"] == "delete")
@@ -251,6 +189,7 @@ system($command);*/
 <!--   <th>Image</th>-->
     <th>File Name</th>
     <th>Delete</th>
+    <th>Classify</th>
    </tr>
   ';
 
@@ -268,6 +207,7 @@ system($command);*/
      <!--<td><img src="'.$path.'" class="img-thumbnail" height="50" width="50" /></td>-->
      <td contenteditable="true" data-folder_name="'.$_POST["folder_name"].'"  data-file_name = "'.$file.'" class="change_file_name">'.$file.'</td>
      <td><button name="remove_file" class="remove_file btn btn-danger btn-xs" id="'.$path.'">Remove</button></td>
+     <td><button name="classify_file" class="classify_file btn btn-default btn-xs" id="'.$path.'">Classify</button></td>
     </tr>
     ';
    }
@@ -285,6 +225,30 @@ system($command);*/
   }
  }
 
+     if($_POST["action"] == "classify")
+ {
+  if(file_exists($_POST["path"]))
+  {
+      $model_name =  $_POST["model_name"];
+   $vec_dim =  $_POST["vec_dim"];
+
+      $labels = $_POST["labels"];
+      $test_ratio = $_POST["test_ratio"];
+    $epoch = $_POST["epoch"];
+      $path = $_POST["path"];
+
+      $a = popen("python -u D:\\xampp\\htdocs\\mtlbl\\webpage\\admin\\classify.py $model_name $vec_dim $test_ratio $epoch $path $labels", "r");
+
+      while (!feof($a)) {
+          $buffer = fgets($a);
+        echo "$buffer<br>\n";
+        ob_flush();
+        }
+        pclose($a);
+   //echo 'Success!';
+  }
+ }
+
  if($_POST["action"] == "change_file_name")
  {
   $old_name = $_POST["folder_name"] . '/' . $_POST["old_file_name"];
@@ -298,5 +262,83 @@ system($command);*/
    echo 'There is an error';
   }
  }
+
+     if($_POST["action"] == "classify_files")
+ {
+  if(file_exists($_POST["path"]))
+  {
+
+      $folder_name = $_POST["folder_name"];
+       $query= mysqli_query($db, "SELECT * FROM model where modelName = '$folder_name'");
+     $row = mysqli_fetch_array($query);
+        $modelName = $row['modelName'];
+        $modelVec = $row['modelVec'];
+        $modelEp = $row['modelEp'];
+      $modelLabel = $row['modelLabel'];
+      $modelRatio = $row['modelRatio'];
+      $datasetName = $row['datasetName'];
+
+
+    echo json_encode(array($modelName, $modelVec, $modelEp, $modelLabel, $modelRatio, $datasetName));
+
+  /* $folder_name = $_POST["folder_name"];
+      $vec_dim =  $_POST["vec_dim"];
+      $model_name =  $_POST["model_name"];
+      $labels = $_POST["labels"];
+      $test_ratio = $_POST["test_ratio"];
+    $epoch = $_POST["epoch"];
+*/
+//disable_ob();
+
+      /*header("Content-type: text/plain");
+
+// tell php to automatically flush after every output
+// including lines of output produced by shell commands
+
+
+$command = "python D:\\xampp\\htdocs\\mtlbl\\webpage\\admin\\datasets\\train.py $folder_name $vec_dim";
+system($command);*/
+
+
+      /*$cmd = "python D:\\xampp\\htdocs\\mtlbl\\webpage\\admin\\datasets\\train.py $folder_name $vec_dim ";*/
+
+
+      /* $a = popen("python -u D:\\xampp\\htdocs\\mtlbl\\webpage\\admin\\classif.py $folder_name $vec_dim $test_ratio $epoch $model_name $labels", "r");
+
+
+      while (!feof($a)) {
+          $buffer = fgets($a);
+        echo "$buffer<br>\n";
+        ob_flush();
+        }
+        pclose($a);*/
+//$modelPath = 'models\\' . $folder_name;
+      /*mysqli_query($db, "INSERT INTO model (modelName, modelPath, modelVec, modelEp, modelLabel, modelRatio, datasetName) VALUES ('$model_name', '$model_name', '$vec_dim', '$epoch', '$labels', '$test_ratio', '$folder_name')");*/
+
+
+
+
+      #this is test for CLI
+      #$output = shell_exec('dir');
+      #echo $output;
+
+
+
+      /*echo $_POST["folder_name"];
+       echo $_POST["vec_dim"];
+       echo $_POST["labels"];
+       echo $_POST["test_ratio"];
+       echo $_POST["epoch"];*/
+
+
+
+  # echo 'Train Process Started!';
+  }
+  else
+  {
+   echo 'There is an error!';
+  }
+ }
+
 }
 ?>
