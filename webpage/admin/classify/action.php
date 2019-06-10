@@ -184,7 +184,7 @@ system($command);*/
       /*$cmd = "python D:\\xampp\\htdocs\\mtlbl\\webpage\\admin\\datasets\\train.py $folder_name $vec_dim ";*/
 
 
-       $a = popen("python -u D:\\xampp\\htdocs\\mtlbl\\webpage\\admin\\train.py $folder_name $vec_dim $test_ratio $epoch $model_name $labels", "r");
+       $a = popen("python -u D:\\xampp\\htdocs\\mtlbl\\webpage\\admin\\classif.py $folder_name $vec_dim $test_ratio $epoch $model_name $labels", "r");
 
 
       while (!feof($a)) {
@@ -194,7 +194,7 @@ system($command);*/
         }
         pclose($a);
 //$modelPath = 'models\\' . $folder_name;
-      mysqli_query($db, "INSERT INTO model (modelName, modelPath, modelVec, modelEp, modelLabel, modelRatio, datasetName) VALUES ('$model_name', '$model_name', '$vec_dim', '$epoch', '$labels', '$test_ratio', '$folder_name')");
+      /*mysqli_query($db, "INSERT INTO model (modelName, modelPath, modelVec, modelEp, modelLabel, modelRatio, datasetName) VALUES ('$model_name', '$model_name', '$vec_dim', '$epoch', '$labels', '$test_ratio', '$folder_name')");*/
 
 
 

@@ -132,7 +132,7 @@ $db = mysqli_connect('localhost', 'root', '', 'mtlbl');
     <h4 class="modal-title">Upload File</h4>
    </div>
    <div class="modal-body">
-    <form method="post" id="upload_form" enctype='multipart/form-data'>
+<form method="post" id="upload_form" enctype='multipart/form-data'>
      <p>Select Text File
      <input type="file" name="upload_file" /></p>
      <br />
@@ -145,8 +145,8 @@ $db = mysqli_connect('localhost', 'root', '', 'mtlbl');
         <input type="hidden" name="hidden_dataset_name" id="hidden_dataset_name" />
 
      <input type="submit" name="upload_button" class="btn btn-info" value="Upload" />
-    <input type="submitt" name="classify_button" class="btn btn-info" value="Classify" />
-    </form>
+
+ </form>
    </div>
    <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -390,12 +390,11 @@ $(document).ready(function(){
   $('#uploadModal').modal('show');
  });
 
+     //$('#upload_form').on('submit', function(){
+
  $('#upload_form').on('submit', function(){
-      var model_name = window.modelName;
-         var vec_dim = window.modelVec;
-  var labels = window.modelLabel;
-     var test_ratio = window.modelRatio;
-     var epoch = window.modelEp;
+
+     //var action = "rip";
   // var path = $path;
      //var action = "sad";
      var formData=new FormData(document.getElementById('upload_form'));
@@ -414,30 +413,39 @@ $(document).ready(function(){
    processData:false,
    success: function(data)
    {
+
+
     load_folder_list();
-    alert(data);
-       //$('#uploadModal').modal('hide');
-       //$('#train_listu').html(data);
-    //$('#uploadModal').modal('show');
-         /*var action = "do";
-        alert(data);
-        $.ajax({
-               url:"action.php",
-               method:"POST",
-               data: {model_name:model_name, action:action, vec_dim: vec_dim, labels:labels, test_ratio:test_ratio, epoch:epoch },
-               success: function(data)
-               {
-                load_folder_list();
-                alert(data);
+   alert(data);
+      /* $.ajax({
 
 
-               }
-              });*/
-        /*$('#uploadModal').modal('hide');
-                    $('#train_listu').html(data);
-                $('#trainModalres').modal('show');*/
+
+                url: "action.php",
+                method: "POST",
+                data: {action: "rip", model_name: "a", action:action, vec_dim: vec_dim, labels:labels, test_ratio:test_ratio, epoch:epoch},
+            contentType: false,
+   cache: false,
+   processData:true,
+                success: function (data) {
+                    alert(data);
+                }
+            });*/
    }
-  });
+
+       /*var vec_dim = $('#hidden_vec_dim').val();
+  var labels = $('#hidden_labels').val();
+     var test_ratio = $('#hidden_test_ratio').val();
+     var epoch = $('#hidden_epoch').val();
+      var model_name = $('#hidden_model_name').val();*/
+
+
+      /* $('#uploadModal').modal('hide');
+       $('#train_listu').html(data);
+    $('#trainModalres').modal('show');*/
+
+
+   });
  });
 
      $('#upload_form').on('submitt', function(){

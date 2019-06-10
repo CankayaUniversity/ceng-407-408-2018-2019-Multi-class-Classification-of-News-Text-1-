@@ -270,7 +270,7 @@ $(document).ready(function(){
      var epoch = $('#epoch').val();
       var model_name = $('#model_name').val();
    var action = "train";
-     $('#train_button').val("Training... Please DO NOT CLOSE this window/tab!");
+     $('#train_button').val("Processing... Please DO NOT CLOSE this window/tab!");
    $.ajax({
     url:"action.php",
     method:"POST",
