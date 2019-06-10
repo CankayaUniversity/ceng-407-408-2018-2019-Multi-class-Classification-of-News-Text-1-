@@ -28,7 +28,7 @@ if (isset($_GET['logout'])) {
      <?php include "../includes/modelnav.php"; ?>
   <br />
   <div class="container">
-   <h2 align="center"></h2>
+   <h3 align="center"><a href="../models/tmodel.php" style="color: white;"><button type="button" name="model_view" id="model_view" class="btn btn-success">View Trained Models</button></a></h3>
    <br />
    <div align="right">
     <button type="button" name="create_folder" id="create_folder" class="btn btn-success">Create</button>

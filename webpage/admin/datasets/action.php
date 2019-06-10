@@ -1,5 +1,16 @@
 <?php
 
+$db = mysqli_connect('localhost', 'root', '', 'mtlbl');
+
+$modelName = "";
+	$modelPath = "";
+	$modelID = 0;
+$modelVec = 0;
+$modelEp= 0;
+$modelLabel = "";
+$modelRatio = 0;
+	$update = false;
+
 function format_folder_size($size)
 {
  if ($size >= 1073741824)
@@ -182,8 +193,8 @@ system($command);*/
         ob_flush();
         }
         pclose($a);
-
-
+//$modelPath = 'models\\' . $folder_name;
+      mysqli_query($db, "INSERT INTO model (modelName, modelPath, modelVec, modelEp, modelLabel, modelRatio, datasetName) VALUES ('$model_name', '$model_name', '$vec_dim', '$epoch', '$labels', '$test_ratio', '$folder_name')");
 
 
 

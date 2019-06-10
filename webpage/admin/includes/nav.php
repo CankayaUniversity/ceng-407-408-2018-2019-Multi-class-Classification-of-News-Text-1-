@@ -28,6 +28,11 @@
                                             <i class="stack-interface stack-cog"></i> Edit Members
                                         </a>
                                     </li>
+                                    <li>
+                                        <a href="classify/classify.php">
+                                            <i class="stack-interface stack-cog"></i> Classify
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

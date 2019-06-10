@@ -42,7 +42,10 @@ return array(
         'magpie',
         'magpie/*',
         'models',
-        'models/*'
+        'models/*',
+        '*.zip',
+        'classify',
+        'classify/*'
 
     ),
 
