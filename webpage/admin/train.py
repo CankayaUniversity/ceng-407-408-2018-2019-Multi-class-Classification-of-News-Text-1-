@@ -47,7 +47,7 @@ magpie.init_word_vectors(data, vec_dim=vec_num)
 magpie.train(data, labels, test_ratio= test_rat, epochs = ep)
 #more epoch = more understanding of vector and lower lose rate
 
-magpie.predict_from_text('ECB to reveal bad loan hurdles for euro zone bank test') #test
+#magpie.predict_from_text('ECB to reveal bad loan hurdles for euro zone bank test') #test
 
 magpie.save_word2vec_model(model_path)
 magpie.save_scaler(scaler_path, overwrite=True)

@@ -184,8 +184,12 @@ system($command);*/
       /*$cmd = "python D:\\xampp\\htdocs\\mtlbl\\webpage\\admin\\datasets\\train.py $folder_name $vec_dim ";*/
 
 
-       $a = popen("python -u D:\\xampp\\htdocs\\mtlbl\\webpage\\admin\\train.py $folder_name $vec_dim $test_ratio $epoch $model_name $labels", "r");
+       $a = popen("python -u D:\\xampp\\htdocs\\mtlbl\\webpage\\train.py $folder_name $vec_dim $test_ratio $epoch $model_name $labels", "r");
 
+/* old one for admin
+$a = popen("python -u D:\\xampp\\htdocs\\mtlbl\\webpage\\admin\\train.py $folder_name $vec_dim $test_ratio $epoch $model_name $labels", "r");
+
+*/
 
       while (!feof($a)) {
           $buffer = fgets($a);

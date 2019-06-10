@@ -7,9 +7,15 @@
         while($row=mysqli_fetch_object ($select))
         {
             $status_var=$row->isActive;
+            $name_var = $row->uName;
             if($status_var=='0')
             {
                 $status_state=1;
+                if (!file_exists("../users/" .$name_var)) {
+                    mkdir("../users/". $name_var);
+                    mkdir("../users/". $name_var. "/classify");
+                    echo 'success!';
+                }
             }
             else
             {

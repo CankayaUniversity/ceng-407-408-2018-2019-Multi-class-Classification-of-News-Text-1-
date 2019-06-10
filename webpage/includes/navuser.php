@@ -14,14 +14,14 @@
                             <div class="bar__module">
                                 <ul class="menu-horizontal">
                                     <li>
-                                        <a href="#">
-                                            <i class="stack-interface stack-plus-circled"></i> Create Project
+                                        <a href="models/memmodel.php">
+                                            <i class="stack-interface stack-plus-circled"></i> Classify
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="myDocument.php">
+                                        <!--<a href="myDocument.php">
                                             <i class="stack-interface stack-cog"></i> My Documents
-                                        </a>
+                                        </a>-->
                                     </li>
                                 </ul>
                             </div>
@@ -30,15 +30,15 @@
                         <div class="col-lg-6 text-right text-left-xs">
                             <div class="bar__module">
                                 <ul class="menu-horizontal">
-                                    <li class="dropdown text-left">
-                                        <span class="dropdown__trigger">
+                                    <li class=" text-left">
+                                        <span class="">
 <!--                                            <img alt="avatar" class="avatar image--xxs" src="img/avatar-round-1.png" />-->
 
                                         <strong><?php echo $_SESSION['user']['uName']; ?></strong>
                                             (<?php echo ucfirst($_SESSION['user']['uType']); ?>)
                                         </span>
 
-                                        <div class=" dropdown__container">
+                                        <!--<div class=" dropdown__container">
                                         <div class="container">
                                             <div class="row">
                                                 <div class="col-md-3 col-lg-2 dropdown__content">
@@ -51,7 +51,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                       </div>
+                                       </div>-->
 
 
                                     </li>
