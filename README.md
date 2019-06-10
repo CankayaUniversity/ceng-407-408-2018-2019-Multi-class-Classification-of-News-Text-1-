@@ -29,6 +29,7 @@ For executing ".py" (Python Script File Extension) in web application change the
 Open "\httpd.conf" file in Apache directory. And add:
 
 >  AddHandler cgi-script .py
+
 >  ScriptInterpreterSource  Registry-Strict
 
 to the end of file.
