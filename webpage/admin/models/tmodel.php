@@ -1,6 +1,6 @@
 <?php
 
-/*include('../includes/functions.php');
+include('../includes/functions.php');
 //include('action.php');
 
 if (!isAdmin()) {
@@ -12,7 +12,7 @@ if (isset($_GET['logout'])) {
 	session_destroy();
 	unset($_SESSION['user']);
 	header("location: ../../login.php");
-}*/
+}
 
 $db = mysqli_connect('localhost', 'root', '', 'mtlbl');
 ?>

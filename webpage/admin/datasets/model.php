@@ -65,28 +65,16 @@ if (isset($_GET['logout'])) {
 </div>
 
 
-<div id="trainModalres" class="modal fade" role="dialog">
- <div class="modal-dialog">
+<div id="trainModalres" class="modal fade" role="dialog" style="overflow-y:auto;">
+ <div class="modal-dialog" style="overflow-y:auto;">
   <div class="modal-content">
    <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">&times;</button>
     <h4 class="modal-title"><span id="change_title">Train Model</span></h4>
    </div>
-   <div class="modal-body" id="train_listu">
+   <div class="modal-body" id="train_listu" style="overflow-y:auto;">
 
-    <!--<p>Vector Dim
-    <input type="text" name="vec_dim" id="vec_dim" class="form-control" /></p>
-       <p>Labels
-    <input type="text" name="labels" id="labels" class="form-control" /></p>
-         <p>Test Ratio
-    <input type="text" name="test_ratio" id="test_ratio" class="form-control" /></p>
-       <p>Epoch
-    <input type="text" name="epoch" id="epoch" class="form-control" /></p>
 
-    <br />
-    <input type="hidden" name="action" id="action" />
-    <input type="hidden" name="old_name" id="old_name" />
-    <input type="submit" name="train_button" id="train_button" class="btn--lg btn-info" value="Train" />-->
 
    </div>
    <div class="modal-footer">

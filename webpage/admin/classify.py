@@ -19,13 +19,14 @@ test_rat = float(test_rat)
 ep = sys.argv[4]
 ep= int(ep)
 filePath = sys.argv[5]
+val = sys.argv[6]
 
 # many labels 4 is a must
-labels1 = sys.argv[6]
-labels2 = sys.argv[7]
-labels3 = sys.argv[8]
+labels1 = sys.argv[7]
+labels2 = sys.argv[8]
+labels3 = sys.argv[9]
 #print (labels3)
-labels4 = sys.argv[9]
+labels4 = sys.argv[10]
 labelsa = [  labels1, labels2, labels3, labels4 ]
 
 #print (labels)
@@ -52,8 +53,9 @@ magpie = Magpie(
 labels = labelsa
 )
 #filePath = 'D:\\xampp\\htdocs\\mtlbl\\webpage\\admin\\classify' + model_name + '\\' + '.txt'
-
-magpie.predict_from_file(filePath) #test
+path= 'D:\\xampp\\htdocs\\mtlbl\\webpage\\admin\\classify\\' + model_name + '\\' + val
+#print(path)
+print (magpie.predict_from_file(path)) #test
 
 #magpie.predict_from_text('Manchester United vs Chelsea')
 

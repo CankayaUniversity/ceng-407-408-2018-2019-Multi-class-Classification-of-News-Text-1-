@@ -3188,8 +3188,8 @@ form[action*='list-manage.com'] .small-meta {
 }
 .bar .logo {
   margin: 0;
-  position: relative;
-  top: 4px;
+  position: absolute;
+  top: -22px;
 }
 .bar .menu-horizontal {
   position: relative;
@@ -4747,7 +4747,7 @@ section.parallax .row .background-image-holder {
   font-family: 'Open Sans', 'Roboto', 'Helvetica', Sans-Serif;
 }
 .bar .logo {
-  max-height: 1.85714286em;
+  max-height: 84px;
   max-width: none;
 }
 .menu-horizontal > li > a,
