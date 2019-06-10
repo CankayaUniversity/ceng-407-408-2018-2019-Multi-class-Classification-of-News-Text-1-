@@ -203,36 +203,33 @@ if(isset($_POST["action"]))
  }
 
 
-    if($_POST["action"] == "do")
+    function rip($path)
  {
-  if(file_exists($_POST["model_name"]))
-  {
+
 
    //$model_name = $_POST["folder_name"];
-      $vec_dim =  $_POST["vec_dim"];
-      $model_name =  $_POST["model_name"];
-      $labels = $_POST["labels"];
-      $test_ratio = $_POST["test_ratio"];
-    $epoch = $_POST["epoch"];
-$path = $_POST['path'];
+      $vec_dim =  $_POST["hidden_vec_dim"];
+      $model_name =  $_POST["hidden_model_name"];
+      $labels = $_POST["hidden_labels"];
+      $test_ratio = $_POST["hidden_test_ratio"];
+    $epoch = $_POST["hidden_epoch"];
+
+
 
        $a = popen("python -u D:\\xampp\\htdocs\\mtlbl\\webpage\\admin\\classify.py $model_name $vec_dim $test_ratio $epoch $path $labels", "r");
 
 
       while (!feof($a)) {
           $buffer = fgets($a);
-        echo "$buffer<br>\n";
+        echo $buffer;
         ob_flush();
         }
         pclose($a);
 //$modelPath = 'models\\' . $folder_name;
       //mysqli_query($db, "INSERT INTO model (modelName, modelPath, modelVec, modelEp, modelLabel, modelRatio, datasetName) VALUES ('$model_name', '$model_name', '$vec_dim', '$epoch', '$labels', '$test_ratio', '$folder_name')");
 
-  }
-  else
-  {
-   echo 'There is an error!';
-  }
+
+
  }
 
 
@@ -256,9 +253,9 @@ $path = $_POST['path'];
   if(move_uploaded_file($_FILES["upload_file"]["tmp_name"], $path))
   {
       //$_SESSION['path'] = $path;
+rip($path);
 
-
-     $vec_dim =  $_POST["hidden_vec_dim"];
+    /* $vec_dim =  $_POST["hidden_vec_dim"];
       $model_name =  $_POST["hidden_model_name"];
       $labels = $_POST["hidden_labels"];
       $test_ratio = $_POST["hidden_test_ratio"];
@@ -274,7 +271,7 @@ $path = $_POST['path'];
         echo $buffer;
         ob_flush();
         }
-        pclose($a);
+        pclose($a);*/
 
 
 
