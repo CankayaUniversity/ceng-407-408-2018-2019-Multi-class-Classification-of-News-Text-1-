@@ -258,26 +258,27 @@ $path = $_POST['path'];
       //$_SESSION['path'] = $path;
 
 
-      $vec_dim =  $_POST["vec_dim"];
-      $model_name =  $_POST["model_name"];
-      $labels = $_POST["labels"];
-      $test_ratio = $_POST["test_ratio"];
-    $epoch = $_POST["epoch"];
+     $vec_dim =  $_POST["hidden_vec_dim"];
+      $model_name =  $_POST["hidden_model_name"];
+      $labels = $_POST["hidden_labels"];
+      $test_ratio = $_POST["hidden_test_ratio"];
+    $epoch = $_POST["hidden_epoch"];
+
+
 
        $a = popen("python -u D:\\xampp\\htdocs\\mtlbl\\webpage\\admin\\classify.py $model_name $vec_dim $test_ratio $epoch $path $labels", "r");
 
 
       while (!feof($a)) {
           $buffer = fgets($a);
-        echo "$buffer<br>\n";
+        echo $buffer;
         ob_flush();
         }
         pclose($a);
 
 
 
-
-
+//echo $output;
 
 
 

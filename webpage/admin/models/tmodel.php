@@ -361,13 +361,13 @@ $(document).ready(function(){
         global $modelLabel;
         global $modelRatio;
         global $datasetName;*/
-
+ $('#uploadModal').modal('show');
         $('#hidden_model_name').val(window.modelName);
         $('#hidden_vec_dim').val(window.modelVec);
         $('#hidden_epoch').val(window.modelEp);
         $('#hidden_test_ratio').val(window.modelRatio);
         $('#hidden_labels').val(window.modelLabel);
-        $('#hidden_dataset_name').val(window.datasetName);
+//        $('#hidden_dataset_name').val(window.datasetName);
 
 
 
@@ -379,7 +379,7 @@ $(document).ready(function(){
       var model_name = $('#model_name').val();*/
 
 
-  $('#uploadModal').modal('show');
+
  });
 
 
@@ -397,9 +397,9 @@ $(document).ready(function(){
      var test_ratio = window.modelRatio;
      var epoch = window.modelEp;
   // var path = $path;
-     var action = "sad";
+     //var action = "sad";
      var formData=new FormData(document.getElementById('upload_form'));
-     //formData.append("action", "sad");
+     formData.append("action", "sad");
       /*formData.append("model_name", model_name);
       formData.append("vec_dim", vec_dim);
       formData.append("labels", labels);
@@ -408,7 +408,7 @@ $(document).ready(function(){
   $.ajax({
    url:"action.php",
    method:"POST",
-   data: {form_data:formData, model_name:model_name, action:action, vec_dim: vec_dim, labels:labels, test_ratio:test_ratio, epoch:epoch},
+   data: formData,
    contentType: false,
    cache: false,
    processData:false,
