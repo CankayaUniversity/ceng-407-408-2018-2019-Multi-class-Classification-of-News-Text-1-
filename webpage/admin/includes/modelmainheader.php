@@ -10,6 +10,7 @@
         <link href="../admin/css/iconsmind.css" rel="stylesheet" type="text/css" media="all" />
         <link href="../admin/css/jquery.steps.css" rel="stylesheet" type="text/css" media="all" />
         <link href="../admin/css/model.css" rel="stylesheet" type="text/css" media="all" />
+<link href="../admin/css/theme.css" rel="stylesheet" type="text/css" media="all" />
         <link href="../admin/css/custom.css" rel="stylesheet" type="text/css" media="all" />
         <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="../dist/style.css" rel="stylesheet">

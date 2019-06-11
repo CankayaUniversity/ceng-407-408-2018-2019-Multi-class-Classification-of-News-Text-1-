@@ -14,22 +14,22 @@
                             <div class="bar__module">
                                 <ul class="menu-horizontal">
                                     <li>
-                                        <a href="../file.php">
+                                        <a href="../admin/file.php">
                                             <i class="stack-interface stack-plus-circled"></i> Repo
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="../datasets/model.php">
+                                        <a href="../admin/datasets/model.php">
                                             <i class="stack-interface stack-cog"></i> Model
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="../members.php">
+                                        <a href="../admin/members.php">
                                             <i class="stack-interface stack-cog"></i> Edit Members
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="classify.php">
+                                        <a href="../admin/classify/classify.php">
                                             <i class="stack-interface stack-cog"></i> Classify
                                         </a>
                                     </li>
