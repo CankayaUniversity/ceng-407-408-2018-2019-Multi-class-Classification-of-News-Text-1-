@@ -25,7 +25,7 @@ if (isset($_GET['logout'])) {
  </head>
  <body>
 
-     <?php include "../includes/modelnav.php"; ?>
+     <?php include "../includes/kardelennav.php"; ?>
   <br />
   <div class="container">
    <h3 align="center"><a href="../../models/tmodel.php" style="color: white;"><button type="button" name="model_view" id="model_view" class="btn btn-success">View Trained Models</button></a></h3>

@@ -27,7 +27,7 @@ $db = mysqli_connect('localhost', 'root', '', 'mtlbl');
  </head>
  <body>
 
-     <?php include "../includes/modelnav.php"; ?>
+     <?php include "../includes/bihternav.php"; ?>
   <br />
   <div class="container">
    <h3 align="center"><a href="../datasets/model.php" style="color: white;"><button type="button" name="model_view" id="model_view" class="btn btn-success">Train Models</button></a></h3>

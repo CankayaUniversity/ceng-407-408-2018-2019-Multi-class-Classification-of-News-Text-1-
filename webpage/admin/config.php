@@ -45,7 +45,9 @@ return array(
         'models/*',
         '*.zip',
         'classify',
-        'classify/*'
+        'classify/*',
+        'img',
+        'img/*'
 
     ),
 

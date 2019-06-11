@@ -4,8 +4,8 @@
                         <div class="col-lg-1 hidden-xs hidden-sm">
                             <div class="bar__module">
                                 <a href="../index.php">
-                                    <img class="logo logo-dark" alt="logo" src="img/logo-dark.png" />
-                                    <img class="logo logo-light" alt="logo" src="img/logo-light.png" />
+
+                                    <img class="logo logo-light" alt="logo" src="../img/ceng.png" />
                                 </a>
                             </div>
                             <!--end module-->
@@ -19,7 +19,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="model.php">
+                                        <a href="../datasets/model.php">
                                             <i class="stack-interface stack-cog"></i> Model
                                         </a>
                                     </li>
@@ -29,7 +29,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="../classify/classify.php">
+                                        <a href="classify.php">
                                             <i class="stack-interface stack-cog"></i> Classify
                                         </a>
                                     </li>
