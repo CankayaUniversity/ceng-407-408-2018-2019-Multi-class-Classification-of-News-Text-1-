@@ -3,7 +3,7 @@
                         <div class="row">
                             <div class="col-lg-1 col-md-2 hidden-xs">
                                 <div class="bar__module">
-                                    <a href="index.php"> <img class="logo logo-light" alt="logo" src="img/logo-light.png"> </a>
+                                    <a href="index.php"> <img class="logo logo-light" alt="logo" src="img/ceng.png"> </a>
                                 </div>
                             </div>
                             <div class="col-lg-11 col-md-12 text-right text-left-xs text-left-sm">

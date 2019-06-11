@@ -20,8 +20,8 @@ if (isset($_GET['logout'])) {
                     <div class="row">
                         <div class="col-3 col-md-2">
                             <a href="admin/index.php">
-                                <img class="logo logo-dark" alt="logo" src="img/logo-dark.png" />
-                                <img class="logo logo-light" alt="logo" src="img/logo-light.png" />
+
+                                <img class="logo logo-light" alt="logo" src="img/ceng.png" />
                             </a>
                         </div>
                         <div class="col-9 col-md-10 text-right">

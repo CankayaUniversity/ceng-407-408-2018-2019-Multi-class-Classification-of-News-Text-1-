@@ -4,8 +4,8 @@
                         <div class="col-lg-1 hidden-xs hidden-sm">
                             <div class="bar__module">
                                 <a href="index.php">
-                                    <img class="logo logo-dark" alt="logo" src="img/logo-dark.png" />
-                                    <img class="logo logo-light" alt="logo" src="img/logo-light.png" />
+                                    <img class="logo logo-light" alt="logo" src="img/ceng.png" />
+                                  <!--  <img class="logo logo-light" alt="logo" src="img/logo-light.png" />-->
                                 </a>
                             </div>
                             <!--end module-->
@@ -14,18 +14,23 @@
                             <div class="bar__module">
                                 <ul class="menu-horizontal">
                                     <li>
-                                        <a href="#">
+                                        <a href="file.php">
                                             <i class="stack-interface stack-plus-circled"></i> Repo
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="datasets/model.php">
                                             <i class="stack-interface stack-cog"></i> Model
                                         </a>
                                     </li>
                                     <li>
                                         <a href="members.php">
                                             <i class="stack-interface stack-cog"></i> Edit Members
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="classify/classify.php">
+                                            <i class="stack-interface stack-cog"></i> Classify
                                         </a>
                                     </li>
                                 </ul>
