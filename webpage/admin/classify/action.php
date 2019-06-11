@@ -239,7 +239,7 @@ if(isset($_POST["action"]))
       $val = substr($path, strrpos($path, '/') + 1);
 //$val = end(explode('/', $path));
 
-      $a = popen("python -u D:\\xampp\\htdocs\\mtlbl\\webpage\\admin\\classify.py $model_name $vec_dim $test_ratio $epoch $path $val $labels", "r");
+      $a = popen("python -u D:\\xampp\\htdocs\\mtlbl\\webpage\\classify.py $model_name $vec_dim $test_ratio $epoch $path $val $labels", "r");
 
       while (!feof($a)) {
           $buffer = fgets($a);
