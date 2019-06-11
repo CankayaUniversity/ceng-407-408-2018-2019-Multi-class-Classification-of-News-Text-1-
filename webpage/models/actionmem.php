@@ -313,7 +313,7 @@ else
   }
   if(rmdir($_POST["folder_name"]))
   {
-   echo 'Dataset Deleted';
+   echo 'Model Deleted';
   }
  }
 

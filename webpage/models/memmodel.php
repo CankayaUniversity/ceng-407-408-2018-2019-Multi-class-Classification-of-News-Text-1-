@@ -29,7 +29,7 @@ $db = mysqli_connect('localhost', 'root', '', 'mtlbl');
  </head>
  <body>
 
-     <?php include "../includes/navmodeluser.php"; ?>
+     <?php include "../includes/koralnav.php"; ?>
   <br />
   <div class="container">
    <!--<h3 align="center"><a href="../admin/datasets/model.php" style="color: white;"><button type="button" name="model_view" id="model_view" class="btn btn-success">Train Models</button></a></h3>-->

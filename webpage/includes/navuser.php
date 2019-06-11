@@ -4,8 +4,8 @@
                         <div class="col-lg-1 hidden-xs hidden-sm">
                             <div class="bar__module">
                                 <a href="index.php">
-                                    <img class="logo logo-dark" alt="logo" src="img/logo-dark.png" />
-                                    <img class="logo logo-light" alt="logo" src="img/logo-light.png" />
+
+                                    <img class="logo logo-light" alt="logo" src="img/ceng.png">
                                 </a>
                             </div>
                             <!--end module-->
@@ -15,13 +15,13 @@
                                 <ul class="menu-horizontal">
                                     <li>
                                         <a href="models/memmodel.php">
-                                            <i class="stack-interface stack-plus-circled"></i> Classify
+                                            <i class="stack-interface stack-plus-circled"></i> Prepare Classify
                                         </a>
                                     </li>
                                     <li>
-                                        <!--<a href="myDocument.php">
-                                            <i class="stack-interface stack-cog"></i> My Documents
-                                        </a>-->
+                                        <a href="users/<?php echo $_SESSION['user']['uName']; ?>/classify/classify.php">
+                                            <i class="stack-interface stack-cog"></i> Classify
+                                        </a>
                                     </li>
                                 </ul>
                             </div>

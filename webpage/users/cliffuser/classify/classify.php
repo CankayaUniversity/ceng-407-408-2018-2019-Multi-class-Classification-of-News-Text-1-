@@ -1,7 +1,7 @@
 <?php
 
 
-include('../../includes/functions.php');
+include('../../../includes/functions.php');
 
 /*
 if (!isAdmin()) {
@@ -13,21 +13,21 @@ if (!isAdmin()) {
 if (isset($_GET['logout'])) {
 	session_destroy();
 	unset($_SESSION['user']);
-	header("location: ../../login.php");
+	header("location: ../../../login.php");
 }
 ?>
 
 <!DOCTYPE html>
 <html>
  <head>
- <?php include "../includes/modelheader.php"; ?>
+ <?php include "../../../includes/mirayheader.php"; ?>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  </head>
  <body>
 
-     <?php include "../includes/navmodeluser.php"; ?>
+     <?php include "../../../includes/navmodeluser.php"; ?>
   <br />
   <div class="container">
    <!--<h3 align="center"><a href="../models/tmodel.php" style="color: white;"><button type="button" name="model_view" id="model_view" class="btn btn-success">View Trained Models</button></a></h3>-->
@@ -125,7 +125,9 @@ if (isset($_GET['logout'])) {
 
    <input type="hidden" name="action" id="action" />
     <input type="hidden" name="old_name" id="old_name" />
-    <input type="button" name="classify_button" id="classify_button" class="btn--lg btn-info" value="Classify" />
+    <input type="button" name="classify_button" id="classify_button" class="btn--lg btn-info" value="Classify" style="
+    background-color: #5bc0de;
+"/>
 
    </div>
    <div class="modal-footer">

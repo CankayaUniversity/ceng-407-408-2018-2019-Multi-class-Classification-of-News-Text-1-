@@ -14,6 +14,14 @@
                 if (!file_exists("../users/" .$name_var)) {
                     mkdir("../users/". $name_var);
                     mkdir("../users/". $name_var. "/classify");
+
+                    $files = ['action.php','upload.php','classify.php'];
+                    $yey = "../users/". $name_var. "/classify/";
+
+                    foreach($files as $resFile){
+                        //rename($resFile, 'newfolder/'.$resFile);
+                        copy($resFile, $yey .$resFile);
+                        }
                     echo 'success!';
                 }
             }
