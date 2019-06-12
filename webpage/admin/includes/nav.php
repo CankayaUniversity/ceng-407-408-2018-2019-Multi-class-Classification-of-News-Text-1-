@@ -4,7 +4,7 @@
                         <div class="col-lg-1 hidden-xs hidden-sm">
                             <div class="bar__module">
                                 <a href="index.php">
-                                    <img class="logo logo-light" alt="logo" src="img/ceng.png" />
+                                    <img class="logo logo-light" alt="logo" src="img/ceng.png" style="z-index: 2;" />
                                   <!--  <img class="logo logo-light" alt="logo" src="img/logo-light.png" />-->
                                 </a>
                             </div>
